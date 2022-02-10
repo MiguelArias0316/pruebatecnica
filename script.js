@@ -8,37 +8,26 @@ const firebaseConfig = {
     appId: "1:297845012994:web:3e6413a5a4717b833ec51b",
     measurementId: "G-8L8CQZSBHF"
   };
-  
+
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   
   // Refernece contactInfo collections
-  let CarInfo = firebase.database().ref("datos");
+  var pruebatecnicaformdb = firebase.database().ref("pruebatecnicaform");
   
   // Listen for a submit
-  document.querySelector(".pruebatecnicaform").addEventListener("submit", submitForm);
+  document.getElementById(".pruebatecnicaform").addEventListener("submit", submitForm);
   
   function submitForm(e) {
     e.preventDefault();
   
      //   Get input Values
-     let placa = document.querySelector(".placa").value;
-     let horaingreso = document.querySelector(".horaingreso").value;
-     let nroCono = document.querySelector(".nroCono").value;
+     var placa = getElementVal("placa");
+     var horaingreso = getElementVal("horaingreso");
+     var nroCono = getElementVal("nroCono");
     console.log(placa, horaingreso, nroCono);
-  
-    saveCarInfo(placa, horaingreso, nroCono);
-  
-    document.querySelector(".pruebatecnicaform").reset();
   }
   
-  // Save datos to Firebase
-  function saveCarInfo(placa, horaingreso, nroCono) {
-    let newCarInfo = CarInfo.push();
-  
-    newCarInfo.set({
-      placa: placa,
-      horaingreso: horaingreso,
-      nroCono: nroCono,
-    });
-  }
+const getElementVal = (id) => {
+    return document.getElementById(id).value;
+}

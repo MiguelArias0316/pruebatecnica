@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
- 
+ <!--    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--     <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script> -->
+<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 <link href="style.css" rel="stylesheet">
+<link href="assets/img/EL-CONO-AMIGO.ico" rel="icon">
 </head>
 <body>
     <div class="container register">
@@ -25,20 +28,20 @@
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <h3 class="register-heading"></h3>
                         <div class="row register-form">
-                            <form class="pruebatecnicaform">
+                            <form id="pruebatecnicaform" action="addreserva.php" method="POST">
+                                <div id="mb-3">
+                                    <label for="inputPlaca" class="form-label fw-bold">Nro Placa
+                                    <input type="text" class="form-control" name="nroPlaca" placeholder="ABC123"/>
+                                </div>                      
                                 <div class="mb-3">
-                                    <label for="inputPlaca" class="form-label">Nro Placa
-                                    <input type="text" class="form-control" id="placa" name="placa" id="inputPlaca" placeholder="XXX###"/>
+                                    <label for="inputHora" class="form-label fw-bold">Hora de ingreso
+                                    <input type="time" class="form-control"name="horaIngreso" placeholder="Hora de ingreso *" />
+                                    <!-- <input type="text" class="form-control" name="horaIngreso" placeholder="XXX###"/> -->
                                 </div>
-                                <br>
                                 <div class="mb-3">
-                                    <label for="inputHora" class="form-label">Hora de ingreso
-                                    <input type="time" class="form-control" id="horaingreso" name="horaingreso" id="inputHora" placeholder="Hora de ingreso *" />
-                                </div>
-                                <br>
-                                <div class="mb-3">
-                                    <label for="selectCono" class="form-label">Elegir Cono
-                                <select id="nroCono" class="form-control" aria-label="Default select example" id="selectCono" name="nroCono" >
+                                    <label for="selectCono" class="form-label fw-bold">Elegir Cono
+                                        <!-- <input type="text" class="form-control" name="nroCono" placeholder="XXX###"/> -->
+                                        <select name="nroCono" class="form-control" aria-label="Default select example">
                                     <option value="1">Cono 1</option>
                                     <option value="2">Cono 2</option>
                                     <option value="3">Cono 3</option>
@@ -66,7 +69,16 @@
                                     <option value="25">Cono 25</option>
                                   </select>
                                 </div>
-                                  <input type="button" class="btnRegister" value="Registrar" onclick="obtenerdatos()">
+                                <div class="mb-3">
+                                    <label for="selectPlan" class="form-label fw-bold">Elegir plan</label>
+                                    <select name="tipoPlan" class="form-control" aria-label="Default select example">
+                                        <option value="Basico">Basico</option>
+                                        <option value="Sencillo">Sencillo</option>
+                                        <option value="Completo">Completo</option>
+                                        <option value="Premium">Premium</option>
+                                    </select>
+                                </div>
+                                  <input type="submit" class="btnRegister" value="Registrar" name="addreserva">
                                   <!-- <input type="button" class="btnVolver" value="Volver" href="index.html"> -->
                                   <input type="button" class="btnVolver" onclick="history.back()" name="volver atrás" value="Volver">
                                 </form>
@@ -74,48 +86,21 @@
                 </div>
             </div>
         </div>
-
-        <!-- <div class="col-md-9 register-right" >
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <h3 class="register-heading"></h3>
-                    <div class="row register-form">
-                        <label name="placaregistrada" class="">Placa:</label>
-                        <label name="horaregistrada" class="">Hora de ingreso:</label>
-                        <label name="nroconoregistrado" class="">Numero de Cono:</label>
-                        <label name="" class="">Tipo de servicio:</label>
-                        <label name="" class="">Total:</label>
-                </div>
-            </div>
-        </div>
-    </div> -->
     </div>
-    <script type="text/javascript">
-        function obtenerdatos(){
-            var placa = document.getElementById('placa').value;
-            var horaingreso = parseFloat(document.getElementById('horaingreso').value);
-            var nroCono = document.getElementById('nroCono').value; 
-
-            document.pruebatecnicaform.placaregistrada = placa;
-            document.pruebatecnicaform.horaregistrada = horaingreso;
-            document.pruebatecnicaform.nroconoregistrado = nroCono;
-        }
-
-
     </script>
-    <scripts src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
-        <script src="script.js"></script>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        
-        
-      </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+        <script src="./script.js"></script>
 </body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-analytics.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+
+</script>
 </html>
