@@ -26,16 +26,19 @@
                         <h3 class="register-heading"></h3>
                         <div class="row register-form">
                             <form class="pruebatecnicaform">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="placa" name="placa" placeholder="Nro placa *" value="" />
+                                <div class="mb-3">
+                                    <label for="inputPlaca" class="form-label">Nro Placa
+                                    <input type="text" class="form-control" id="placa" name="placa" id="inputPlaca" placeholder="XXX###"/>
                                 </div>
                                 <br>
-                                <div class="form-group">
-                                    <input type="time" class="form-control" id="horaingreso" name="horaingreso" placeholder="Hora de ingreso *" />
+                                <div class="mb-3">
+                                    <label for="inputHora" class="form-label">Hora de ingreso
+                                    <input type="time" class="form-control" id="horaingreso" name="horaingreso" id="inputHora" placeholder="Hora de ingreso *" />
                                 </div>
                                 <br>
-                                <select class="form-select" id="nroCono" aria-label="Default select example" name="nroCono" >
-                                    <option selected>Seleccione un Cono</option>
+                                <div class="mb-3">
+                                    <label for="selectCono" class="form-label">Elegir Cono
+                                <select id="nroCono" class="form-control" aria-label="Default select example" id="selectCono" name="nroCono" >
                                     <option value="1">Cono 1</option>
                                     <option value="2">Cono 2</option>
                                     <option value="3">Cono 3</option>
@@ -62,6 +65,7 @@
                                     <option value="24">Cono 24</option>
                                     <option value="25">Cono 25</option>
                                   </select>
+                                </div>
                                   <input type="button" class="btnRegister" value="Registrar" onclick="obtenerdatos()">
                                   <!-- <input type="button" class="btnVolver" value="Volver" href="index.html"> -->
                                   <input type="button" class="btnVolver" onclick="history.back()" name="volver atrás" value="Volver">

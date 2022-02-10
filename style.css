@@ -12,6 +12,9 @@ body {
     padding-bottom: 3rem;
 
   }
+  label {
+    display: block;
+}
   /* CUSTOMIZE THE CAROUSEL
   -------------------------------------------------- */
   
@@ -166,8 +169,8 @@ body {
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
-    background: #f39421;
-    color: #000000;
+    background: #198754;
+    color: #fff;
     font-weight: 600;
     width: 100%;
     cursor: pointer;
@@ -179,7 +182,7 @@ body {
     border-radius: 1.5rem;
     padding: 2%;
     background: #6c757d;
-    color: #000000;
+    color: #fff;
     font-weight: 600;
     width: 100%;
     cursor: pointer;
