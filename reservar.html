@@ -71,12 +71,16 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="selectPlan" class="form-label fw-bold">Elegir plan</label>
-                                    <select name="tipoPlan" class="form-control" aria-label="Default select example">
-                                        <option value="Basico">Basico</option>
-                                        <option value="Sencillo">Sencillo</option>
-                                        <option value="Completo">Completo</option>
+                                    <select name="totalPlan" onChange="tipoPremium(this)" class="form-control" aria-label="Default select example">
+                                        <option value="5.000">Basico</option>
+                                        <option value="7.000">Sencillo</option>
+                                        <option value="10.000">Completo</option>
                                         <option value="Premium">Premium</option>
                                     </select>
+                                </div>
+                                <div class="mb-3" id="divTiempo" style="display:none;">
+                                    <label for="inputTiempo" class="form-label fw-bold">Digite los dias de hospedaje
+                                        <input type="number" class="form-control" name="diasTotales">
                                 </div>
                                   <input type="submit" class="btnRegister" value="Registrar" name="addreserva">
                                   <!-- <input type="button" class="btnVolver" value="Volver" href="index.html"> -->
@@ -87,6 +91,20 @@
             </div>
         </div>
     </div>
+    </script>
+    <script>
+       
+function tipoPremium(sel) {
+      if (sel.value=="Premium"){    
+           divT = document.getElementById("divTiempo");
+           divT.style.display = "";
+      }else{
+           divT = document.getElementById("divTiempo");
+           divT.style.display = "none";
+      }
+};
+
+    
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
         <script src="./script.js"></script>

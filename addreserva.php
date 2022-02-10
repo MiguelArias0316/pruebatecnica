@@ -9,7 +9,7 @@ if(isset($_POST['addreserva'])){
 $nroPlaca = $_POST['nroPlaca'];
 $horaIngreso= $_POST['horaIngreso'];
 $nroCono = $_POST['nroCono'];
-$tipoPlan = $_POST['tipoPlan'];
+$totalPlan = $_POST['totalPlan'];
 
 /* AQUI SE VERIFICA POR MEDIO DE UN SELECT SI EL CELULAR (DATO UNICO) NO SE ENCUENTRA YA ASIGNADO A OTRO CLIENTE REGISTRADO EN LA BASE DE DATOS */
 $query="SELECT nroPlaca FROM usuarios WHERE nroPlaca = $nroPlaca";
@@ -28,8 +28,15 @@ if ($result = $con->query($query)) {
   echo "<script>alert('La placa $nroPlaca ya se encuentra registrada');window.location='reservar.html'</script>";
 }else{ */
   /* AQUI CREAMOS Y EJECUTAMOS EL QUERY PARA INSERTAR AL NUEVO CLIENTE/DUEÑO */
-  $query = "INSERT INTO usuarios (nroPlaca,horaIngreso,nroCono,tipoPlan)
-  VALUES ('$nroPlaca', '$horaIngreso', '$nroCono', '$tipoPlan')";
+  $query = "INSERT INTO usuarios (nroPlaca,horaIngreso,nroCono,totalPlan)
+  VALUES ('$nroPlaca', '$horaIngreso', '$nroCono', '$totalPlan')";
+
+$query2 = "INSERT INTO usuarios (tipoPlan)
+VALUES ('Basico') WHERE totalPlan = '5.000'";
+$query3 = "INSERT INTO usuarios (tipoPlan)
+VALUES ('Sencillo') WHERE totalPlan = '7.000'";
+$query4 = "INSERT INTO usuarios (tipoPlan)
+VALUES ('Completo') WHERE totalPlan = '10.000'";
   $ResultadoAgregarReserva = $con->query($query);
 
 if($ResultadoAgregarReserva){

@@ -47,7 +47,7 @@
           <label class="fw-bold">Tipo plan:</label> <?php echo $row['tipoPlan']; ?>
       </div>
       <div class="col">
-          <label class="fw-bold">Total:</label> 
+          <label class="fw-bold">Total:</label> <?php echo $row['totalPlan']; ?>
       </div>
     </div>
       
